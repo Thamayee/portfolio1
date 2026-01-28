@@ -7,23 +7,23 @@
 
 <style>
 :root{
-  --bg:#fbf1ea;           /* peach */
+  --bg:#f4f7fb;
   --surface:#ffffff;
-  --card:#fffaf7;
-  --border:#eaded6;
-  --text:#3b2f2a;         /* cocoa brown */
-  --muted:#7a5f55;
-  --accent:#c08457;       /* warm brown */
-  --accent2:#e6a4a4;      /* soft rose */
+  --card:#ffffff;
+  --border:#e2e8f0;
+  --text:#1e293b;
+  --muted:#64748b;
+  --accent:#6366f1;
+  --accent-soft:#e0e7ff;
 }
 
-/* RESET */
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
   font-family:'Segoe UI',sans-serif;
 }
+
 body{
   background:var(--bg);
   color:var(--text);
@@ -34,7 +34,7 @@ body{
 header{
   position:sticky;
   top:0;
-  background:rgba(255,250,247,0.9);
+  background:rgba(255,255,255,0.85);
   backdrop-filter:blur(10px);
   border-bottom:1px solid var(--border);
   z-index:1000;
@@ -44,8 +44,8 @@ header{
   margin:auto;
   padding:14px 24px;
   display:flex;
-  justify-content:space-between;
   align-items:center;
+  justify-content:space-between;
 }
 .logo{
   font-size:1.4rem;
@@ -57,19 +57,12 @@ nav a{
   text-decoration:none;
   color:var(--text);
   font-size:0.95rem;
-  position:relative;
+  padding-bottom:4px;
 }
-nav a::after{
-  content:"";
-  position:absolute;
-  left:0;
-  bottom:-6px;
-  width:0;
-  height:2px;
-  background:var(--accent2);
-  transition:.3s;
+nav a:hover{
+  color:var(--accent);
+  border-bottom:2px solid var(--accent);
 }
-nav a:hover::after{width:100%;}
 
 /* ---------- HERO ---------- */
 .hero{
@@ -82,28 +75,25 @@ nav a:hover::after{width:100%;}
 }
 .hero h1{
   font-size:3rem;
-  animation:slideUp 1s ease forwards;
 }
 .hero p{
   margin-top:14px;
   color:var(--muted);
-  opacity:0;
-  animation:fadeIn 1.2s ease forwards;
-  animation-delay:.6s;
+  font-size:1.1rem;
 }
 .resume-btn{
   margin-top:30px;
   display:inline-block;
-  padding:12px 30px;
+  padding:12px 28px;
   border-radius:30px;
-  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  background:var(--accent);
   color:white;
   text-decoration:none;
   font-weight:600;
   transition:.3s;
 }
 .resume-btn:hover{
-  transform:translateY(-3px);
+  background:#4f46e5;
 }
 
 /* ---------- SECTIONS ---------- */
@@ -114,11 +104,11 @@ section{
 }
 section h2{
   font-size:1.9rem;
-  margin-bottom:24px;
+  margin-bottom:22px;
   color:var(--accent);
 }
 
-/* ---------- SKILLS (ANIMATED) ---------- */
+/* ---------- SKILLS ---------- */
 .skill{
   background:var(--card);
   border:1px solid var(--border);
@@ -128,57 +118,22 @@ section h2{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  opacity:0;
-  transform:translateY(20px);
-  animation:reveal .8s ease forwards;
 }
-.skill:nth-child(1){animation-delay:.1s}
-.skill:nth-child(2){animation-delay:.2s}
-.skill:nth-child(3){animation-delay:.3s}
-.skill:nth-child(4){animation-delay:.4s}
-.skill:nth-child(5){animation-delay:.5s}
-.skill:nth-child(6){animation-delay:.6s}
-
 .stars{
-  color:#f2b705;
+  color:#fbbf24;
 }
 
-/* ---------- CERTIFICATIONS (HOVER + FADE) ---------- */
+/* ---------- CARDS ---------- */
 .card{
   background:var(--card);
   border:1px solid var(--border);
   border-radius:18px;
   padding:22px;
   margin-bottom:18px;
-  opacity:0;
-  animation:fadeInUp .9s ease forwards;
-}
-.card:hover{
-  transform:translateY(-6px);
-  transition:.3s;
 }
 .card h3{
   margin-bottom:8px;
-  color:#9c5a3c;
-}
-
-/* ---------- GALLERY (ANIMATED) ---------- */
-.gallery{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:18px;
-}
-.gallery img{
-  width:100%;
-  border-radius:16px;
-  border:1px solid var(--border);
-  opacity:0;
-  transform:scale(.95);
-  animation:galleryFade .9s ease forwards;
-}
-.gallery img:hover{
-  transform:scale(1.05);
-  transition:.4s;
+  color:#4338ca;
 }
 
 /* ---------- FOOTER ---------- */
@@ -188,25 +143,6 @@ footer{
   text-align:center;
   color:var(--muted);
   background:var(--surface);
-}
-
-/* ---------- ANIMATIONS ---------- */
-@keyframes slideUp{
-  from{opacity:0; transform:translateY(40px);}
-  to{opacity:1; transform:translateY(0);}
-}
-@keyframes fadeIn{
-  to{opacity:1;}
-}
-@keyframes reveal{
-  to{opacity:1; transform:translateY(0);}
-}
-@keyframes fadeInUp{
-  from{opacity:0; transform:translateY(25px);}
-  to{opacity:1; transform:translateY(0);}
-}
-@keyframes galleryFade{
-  to{opacity:1; transform:scale(1);}
 }
 </style>
 </head>
@@ -221,7 +157,6 @@ footer{
       <a href="#skills">Skills</a>
       <a href="#certifications">Certifications</a>
       <a href="#projects">Projects</a>
-      <a href="#gallery">Gallery</a>
       <a href="#contact">Contact</a>
     </nav>
   </div>
@@ -261,18 +196,15 @@ and building clean, user-friendly digital solutions.
 </div>
 <div class="card">
 <h3>Hackathon – IIITDM Kurnool</h3>
-<p>Solastha’25 – Secured 9th place in Byte Battle</p>
+<p>Solastha’25 – 9th place in Byte Battle</p>
 </div>
 </section>
 
-<section id="gallery">
-<h2>Gallery</h2>
-<div class="gallery">
-<img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085">
-<img src="https://images.unsplash.com/photo-1518770660439-4636190af475">
-<img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c">
-<img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d">
-</div>
+<section id="projects">
+<h2>Projects</h2>
+<div class="card"><h3>Food Recipe Website</h3><p>Responsive UI with multiple cuisines</p></div>
+<div class="card"><h3>Cosmetic Insights</h3><p>Consumer trend analysis using Tableau</p></div>
+<div class="card"><h3>ISRO Autonomous Rover</h3><p>Obstacle-detecting rover using Raspberry Pi</p></div>
 </section>
 
 <section id="contact">
