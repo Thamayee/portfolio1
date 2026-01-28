@@ -7,24 +7,14 @@
 
 <style>
 :root{
-  --bg:#0f172a;
-  --surface:#020617;
-  --card:#111827;
-  --border:#1e293b;
-  --text:#e5e7eb;
-  --muted:#94a3b8;
-  --accent:#38bdf8;
-  --accent2:#6366f1;
-}
-.light{
-  --bg:#f8fafc;
+  --bg:#f4f7fb;
   --surface:#ffffff;
   --card:#ffffff;
   --border:#e2e8f0;
-  --text:#020617;
-  --muted:#475569;
-  --accent:#2563eb;
-  --accent2:#4f46e5;
+  --text:#1e293b;
+  --muted:#64748b;
+  --accent:#6366f1;
+  --accent-soft:#e0e7ff;
 }
 
 *{
@@ -37,15 +27,15 @@
 body{
   background:var(--bg);
   color:var(--text);
-  line-height:1.6;
+  line-height:1.7;
 }
 
 /* ---------- HEADER ---------- */
 header{
   position:sticky;
   top:0;
-  background:rgba(2,6,23,0.75);
-  backdrop-filter:blur(12px);
+  background:rgba(255,255,255,0.85);
+  backdrop-filter:blur(10px);
   border-bottom:1px solid var(--border);
   z-index:1000;
 }
@@ -60,36 +50,18 @@ header{
 .logo{
   font-size:1.4rem;
   font-weight:700;
-  background:linear-gradient(90deg,var(--accent),var(--accent2));
-  -webkit-background-clip:text;
-  color:transparent;
+  color:var(--accent);
 }
 nav a{
   margin-left:22px;
   text-decoration:none;
   color:var(--text);
   font-size:0.95rem;
-  position:relative;
+  padding-bottom:4px;
 }
-nav a::after{
-  content:"";
-  position:absolute;
-  left:0;
-  bottom:-6px;
-  width:0;
-  height:2px;
-  background:var(--accent);
-  transition:.3s;
-}
-nav a:hover::after{width:100%;}
-
-.toggle{
-  margin-left:20px;
-  cursor:pointer;
-  border:1px solid var(--border);
-  padding:6px 12px;
-  border-radius:20px;
-  font-size:13px;
+nav a:hover{
+  color:var(--accent);
+  border-bottom:2px solid var(--accent);
 }
 
 /* ---------- HERO ---------- */
@@ -99,27 +71,29 @@ nav a:hover::after{width:100%;}
   align-items:center;
   justify-content:center;
   text-align:center;
+  padding:20px;
 }
 .hero h1{
   font-size:3rem;
 }
 .hero p{
-  margin-top:12px;
+  margin-top:14px;
   color:var(--muted);
+  font-size:1.1rem;
 }
 .resume-btn{
-  margin-top:28px;
+  margin-top:30px;
   display:inline-block;
   padding:12px 28px;
   border-radius:30px;
-  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  background:var(--accent);
   color:white;
   text-decoration:none;
   font-weight:600;
   transition:.3s;
 }
 .resume-btn:hover{
-  transform:translateY(-3px);
+  background:#4f46e5;
 }
 
 /* ---------- SECTIONS ---------- */
@@ -130,17 +104,8 @@ section{
 }
 section h2{
   font-size:1.9rem;
-  margin-bottom:25px;
-  position:relative;
-}
-section h2::after{
-  content:"";
-  width:50px;
-  height:3px;
-  background:linear-gradient(90deg,var(--accent),var(--accent2));
-  position:absolute;
-  left:0;
-  bottom:-8px;
+  margin-bottom:22px;
+  color:var(--accent);
 }
 
 /* ---------- SKILLS ---------- */
@@ -154,7 +119,9 @@ section h2::after{
   justify-content:space-between;
   align-items:center;
 }
-.stars{color:#facc15;}
+.stars{
+  color:#fbbf24;
+}
 
 /* ---------- CARDS ---------- */
 .card{
@@ -162,23 +129,11 @@ section h2::after{
   border:1px solid var(--border);
   border-radius:18px;
   padding:22px;
-  margin-bottom:20px;
-  transition:.3s;
+  margin-bottom:18px;
 }
-.card:hover{
-  border-color:var(--accent);
-}
-
-/* ---------- GALLERY ---------- */
-.gallery{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:18px;
-}
-.gallery img{
-  width:100%;
-  border-radius:16px;
-  border:1px solid var(--border);
+.card h3{
+  margin-bottom:8px;
+  color:#4338ca;
 }
 
 /* ---------- FOOTER ---------- */
@@ -187,6 +142,7 @@ footer{
   padding:25px;
   text-align:center;
   color:var(--muted);
+  background:var(--surface);
 }
 </style>
 </head>
@@ -196,16 +152,13 @@ footer{
 <header>
   <div class="header-inner">
     <div class="logo">Thanmayee</div>
-    <div>
-      <nav>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#certifications">Certifications</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-      </nav>
-      <span class="toggle" onclick="toggleMode()">🌙</span>
-    </div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </div>
 </header>
 
@@ -220,8 +173,8 @@ footer{
 <section id="about">
 <h2>About Me</h2>
 <p>
-Data-driven Computer Science undergraduate passionate about analytics, machine learning,
-and crafting user-friendly digital experiences.
+I am a data-driven Computer Science undergraduate passionate about analytics, machine learning,
+and building clean, user-friendly digital solutions.
 </p>
 </section>
 
@@ -237,15 +190,21 @@ and crafting user-friendly digital experiences.
 
 <section id="certifications">
 <h2>Certifications & Achievements</h2>
-<div class="card">🎓 Cambridge Linguaskills – B1 English Proficiency</div>
-<div class="card">🏆 Hackathon – IIITDM Kurnool (Solastha’25, 9th Place)</div>
+<div class="card">
+<h3>Cambridge Linguaskills</h3>
+<p>B1 Level – Professional English Proficiency</p>
+</div>
+<div class="card">
+<h3>Hackathon – IIITDM Kurnool</h3>
+<p>Solastha’25 – 9th place in Byte Battle</p>
+</div>
 </section>
 
 <section id="projects">
 <h2>Projects</h2>
-<div class="card">🍽 Food Recipe Website</div>
-<div class="card">💄 Cosmetic Insights – Tableau Analytics</div>
-<div class="card">🚀 ISRO Autonomous Rover</div>
+<div class="card"><h3>Food Recipe Website</h3><p>Responsive UI with multiple cuisines</p></div>
+<div class="card"><h3>Cosmetic Insights</h3><p>Consumer trend analysis using Tableau</p></div>
+<div class="card"><h3>ISRO Autonomous Rover</h3><p>Obstacle-detecting rover using Raspberry Pi</p></div>
 </section>
 
 <section id="contact">
@@ -255,13 +214,9 @@ and crafting user-friendly digital experiences.
 <p>🔗 LinkedIn | GitHub</p>
 </section>
 
-<footer>© 2026 Thanmayee Perumalla</footer>
-
-<script>
-function toggleMode(){
-  document.body.classList.toggle("light");
-}
-</script>
+<footer>
+© 2026 Thanmayee Perumalla
+</footer>
 
 </body>
 </html>
