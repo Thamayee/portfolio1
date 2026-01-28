@@ -7,22 +7,16 @@
 
 <style>
 :root{
-  --bg:#0f172a;
-  --surface:#020617;
+  --bg:#0b1020;
   --card:#111827;
-  --border:#1e293b;
   --text:#e5e7eb;
-  --muted:#94a3b8;
   --accent:#38bdf8;
-  --accent2:#6366f1;
+  --accent2:#818cf8;
 }
 .light{
   --bg:#f8fafc;
-  --surface:#ffffff;
   --card:#ffffff;
-  --border:#e2e8f0;
   --text:#020617;
-  --muted:#475569;
   --accent:#2563eb;
   --accent2:#4f46e5;
 }
@@ -32,34 +26,27 @@
   padding:0;
   box-sizing:border-box;
   font-family:'Segoe UI',sans-serif;
+  scroll-behavior:smooth;
 }
 
 body{
   background:var(--bg);
   color:var(--text);
-  line-height:1.6;
 }
 
-/* ---------- HEADER ---------- */
+/* NAVBAR */
 header{
   position:sticky;
   top:0;
-  background:rgba(2,6,23,0.75);
-  backdrop-filter:blur(12px);
-  border-bottom:1px solid var(--border);
+  background:rgba(0,0,0,0.6);
+  backdrop-filter:blur(10px);
+  padding:15px 40px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
   z-index:1000;
 }
-.header-inner{
-  max-width:1100px;
-  margin:auto;
-  padding:14px 24px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-}
-.logo{
-  font-size:1.4rem;
-  font-weight:700;
+header h2{
   background:linear-gradient(90deg,var(--accent),var(--accent2));
   -webkit-background-clip:text;
   color:transparent;
@@ -68,74 +55,76 @@ nav a{
   margin-left:22px;
   text-decoration:none;
   color:var(--text);
-  font-size:0.95rem;
   position:relative;
 }
 nav a::after{
   content:"";
-  position:absolute;
-  left:0;
-  bottom:-6px;
   width:0;
   height:2px;
   background:var(--accent);
-  transition:.3s;
+  position:absolute;
+  bottom:-5px;
+  left:0;
+  transition:0.3s;
 }
 nav a:hover::after{width:100%;}
 
+/* TOGGLE */
 .toggle{
-  margin-left:20px;
   cursor:pointer;
-  border:1px solid var(--border);
+  border:1px solid var(--accent);
   padding:6px 12px;
   border-radius:20px;
-  font-size:13px;
+  font-size:14px;
 }
 
-/* ---------- HERO ---------- */
+/* HERO */
 .hero{
-  min-height:90vh;
+  height:100vh;
   display:flex;
-  align-items:center;
   justify-content:center;
+  align-items:center;
   text-align:center;
 }
 .hero h1{
-  font-size:3rem;
+  font-size:3.2rem;
+  animation:slideUp 1.2s ease;
 }
 .hero p{
-  margin-top:12px;
-  color:var(--muted);
+  margin-top:15px;
+  font-size:1.2rem;
+  opacity:0;
+  animation:fadeIn 1.5s ease forwards;
+  animation-delay:0.8s;
 }
 .resume-btn{
-  margin-top:28px;
+  margin-top:30px;
   display:inline-block;
-  padding:12px 28px;
-  border-radius:30px;
+  padding:14px 30px;
   background:linear-gradient(90deg,var(--accent),var(--accent2));
   color:white;
+  border-radius:30px;
   text-decoration:none;
-  font-weight:600;
-  transition:.3s;
+  font-weight:bold;
+  transition:0.3s;
 }
 .resume-btn:hover{
-  transform:translateY(-3px);
+  transform:translateY(-4px);
+  box-shadow:0 10px 30px rgba(56,189,248,0.4);
 }
 
-/* ---------- SECTIONS ---------- */
+/* SECTIONS */
 section{
-  max-width:1100px;
-  margin:auto;
-  padding:70px 24px;
+  padding:80px 10%;
 }
 section h2{
-  font-size:1.9rem;
   margin-bottom:25px;
+  font-size:2rem;
   position:relative;
 }
 section h2::after{
   content:"";
-  width:50px;
+  width:60px;
   height:3px;
   background:linear-gradient(90deg,var(--accent),var(--accent2));
   position:absolute;
@@ -143,33 +132,40 @@ section h2::after{
   bottom:-8px;
 }
 
-/* ---------- SKILLS ---------- */
+/* SKILLS */
 .skill{
   background:var(--card);
-  border:1px solid var(--border);
+  padding:18px 22px;
+  margin-bottom:18px;
   border-radius:14px;
-  padding:16px 20px;
-  margin-bottom:14px;
   display:flex;
   justify-content:space-between;
   align-items:center;
+  transition:0.3s;
 }
-.stars{color:#facc15;}
+.skill:hover{
+  transform:translateY(-5px);
+  box-shadow:0 15px 35px rgba(0,0,0,0.4);
+}
+.stars{
+  color:#facc15;
+  font-size:1.2rem;
+}
 
-/* ---------- CARDS ---------- */
+/* CARDS */
 .card{
   background:var(--card);
-  border:1px solid var(--border);
-  border-radius:18px;
   padding:22px;
-  margin-bottom:20px;
-  transition:.3s;
+  margin:20px 0;
+  border-radius:16px;
+  transition:0.3s;
 }
 .card:hover{
-  border-color:var(--accent);
+  transform:translateY(-6px);
+  box-shadow:0 15px 40px rgba(0,0,0,0.4);
 }
 
-/* ---------- GALLERY ---------- */
+/* GALLERY */
 .gallery{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
@@ -178,15 +174,26 @@ section h2::after{
 .gallery img{
   width:100%;
   border-radius:16px;
-  border:1px solid var(--border);
+  transition:0.4s;
+}
+.gallery img:hover{
+  transform:scale(1.08) rotate(1deg);
 }
 
-/* ---------- FOOTER ---------- */
+/* FOOTER */
 footer{
-  border-top:1px solid var(--border);
-  padding:25px;
   text-align:center;
-  color:var(--muted);
+  padding:25px;
+  background:var(--card);
+}
+
+/* ANIMATIONS */
+@keyframes slideUp{
+  from{opacity:0; transform:translateY(40px);}
+  to{opacity:1; transform:translateY(0);}
+}
+@keyframes fadeIn{
+  to{opacity:1;}
 }
 </style>
 </head>
@@ -194,25 +201,24 @@ footer{
 <body>
 
 <header>
-  <div class="header-inner">
-    <div class="logo">Thanmayee</div>
-    <div>
-      <nav>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#certifications">Certifications</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-      </nav>
-      <span class="toggle" onclick="toggleMode()">🌙</span>
-    </div>
+  <h2>Thanmayee</h2>
+  <div>
+    <nav style="display:inline;">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#projects">Projects</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <span class="toggle" onclick="toggleMode()">🌙</span>
   </div>
 </header>
 
 <div class="hero">
   <div>
     <h1>Hi, I’m Thanmayee Perumalla</h1>
-    <p>Data Science & Computer Science Undergraduate</p>
+    <p>Data Science & Computer Science Undergraduate | UI & Analytics Enthusiast</p>
     <a href="Thanmayee_Resume.pdf" download class="resume-btn">📄 Download Resume</a>
   </div>
 </div>
@@ -221,7 +227,7 @@ footer{
 <h2>About Me</h2>
 <p>
 Data-driven Computer Science undergraduate passionate about analytics, machine learning,
-and crafting user-friendly digital experiences.
+and building clean, user-friendly applications.
 </p>
 </section>
 
@@ -237,22 +243,42 @@ and crafting user-friendly digital experiences.
 
 <section id="certifications">
 <h2>Certifications & Achievements</h2>
-<div class="card">🎓 Cambridge Linguaskills – B1 English Proficiency</div>
-<div class="card">🏆 Hackathon – IIITDM Kurnool (Solastha’25, 9th Place)</div>
+
+<div class="card">
+<h3>🎓 Cambridge Linguaskills</h3>
+<p>B1 Level – Professional English Communication Proficiency</p>
+</div>
+
+<div class="card">
+<h3>🏆 Hackathon – IIITDM Kurnool</h3>
+<p>Solastha’25 – Secured 9th place in Byte Battle for a real-time data application.</p>
+</div>
+
 </section>
 
 <section id="projects">
 <h2>Projects</h2>
-<div class="card">🍽 Food Recipe Website</div>
-<div class="card">💄 Cosmetic Insights – Tableau Analytics</div>
-<div class="card">🚀 ISRO Autonomous Rover</div>
+<div class="card">🍽 Food Recipe Website – Responsive UI with multiple cuisines</div>
+<div class="card">💄 Cosmetic Insights – Consumer trend analysis using Tableau</div>
+<div class="card">🚀 ISRO Autonomous Rover – Raspberry Pi & Pixhawk integration</div>
+</section>
+
+<section id="gallery">
+<h2>Gallery</h2>
+<div class="gallery">
+<img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085">
+<img src="https://images.unsplash.com/photo-1518770660439-4636190af475">
+<img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c">
+<img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d">
+</div>
 </section>
 
 <section id="contact">
 <h2>Contact</h2>
 <p>📞 9063374408</p>
-<p>📧 perumallathanmayee@gmail.com</p>
-<p>🔗 LinkedIn | GitHub</p>
+<p>📧 <a href="mailto:perumallathanmayee@gmail.com">perumallathanmayee@gmail.com</a></p>
+<p>🔗 <a href="https://www.linkedin.com/in/thanmayee-perumalla-37b96328b/" target="_blank">LinkedIn</a></p>
+<p>💻 <a href="https://github.com/Thamayee" target="_blank">GitHub</a></p>
 </section>
 
 <footer>© 2026 Thanmayee Perumalla</footer>
