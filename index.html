@@ -7,162 +7,165 @@
 
 <style>
 :root{
-  --bg:#fbf1ea;           /* peach */
-  --surface:#ffffff;
-  --card:#fffaf7;
-  --border:#eaded6;
-  --text:#3b2f2a;         /* cocoa brown */
-  --muted:#7a5f55;
-  --accent:#c08457;       /* warm brown */
-  --accent2:#e6a4a4;      /* soft rose */
+  --bg:#0b1020;
+  --card:#111827;
+  --text:#e5e7eb;
+  --accent:#38bdf8;
+  --accent2:#818cf8;
+}
+.light{
+  --bg:#f8fafc;
+  --card:#ffffff;
+  --text:#020617;
+  --accent:#2563eb;
+  --accent2:#4f46e5;
 }
 
-/* RESET */
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
   font-family:'Segoe UI',sans-serif;
+  scroll-behavior:smooth;
 }
+
 body{
   background:var(--bg);
   color:var(--text);
-  line-height:1.7;
 }
 
-/* ---------- HEADER ---------- */
+/* NAVBAR */
 header{
   position:sticky;
   top:0;
-  background:rgba(255,250,247,0.9);
+  background:rgba(0,0,0,0.6);
   backdrop-filter:blur(10px);
-  border-bottom:1px solid var(--border);
-  z-index:1000;
-}
-.header-inner{
-  max-width:1100px;
-  margin:auto;
-  padding:14px 24px;
+  padding:15px 40px;
   display:flex;
   justify-content:space-between;
   align-items:center;
+  z-index:1000;
 }
-.logo{
-  font-size:1.4rem;
-  font-weight:700;
-  color:var(--accent);
+header h2{
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  -webkit-background-clip:text;
+  color:transparent;
 }
 nav a{
   margin-left:22px;
   text-decoration:none;
   color:var(--text);
-  font-size:0.95rem;
   position:relative;
 }
 nav a::after{
   content:"";
-  position:absolute;
-  left:0;
-  bottom:-6px;
   width:0;
   height:2px;
-  background:var(--accent2);
-  transition:.3s;
+  background:var(--accent);
+  position:absolute;
+  bottom:-5px;
+  left:0;
+  transition:0.3s;
 }
 nav a:hover::after{width:100%;}
 
-/* ---------- HERO ---------- */
+/* TOGGLE */
+.toggle{
+  cursor:pointer;
+  border:1px solid var(--accent);
+  padding:6px 12px;
+  border-radius:20px;
+  font-size:14px;
+}
+
+/* HERO */
 .hero{
-  min-height:90vh;
+  height:100vh;
   display:flex;
-  align-items:center;
   justify-content:center;
+  align-items:center;
   text-align:center;
-  padding:20px;
 }
 .hero h1{
-  font-size:3rem;
-  animation:slideUp 1s ease forwards;
+  font-size:3.2rem;
+  animation:slideUp 1.2s ease;
 }
 .hero p{
-  margin-top:14px;
-  color:var(--muted);
+  margin-top:15px;
+  font-size:1.2rem;
   opacity:0;
-  animation:fadeIn 1.2s ease forwards;
-  animation-delay:.6s;
+  animation:fadeIn 1.5s ease forwards;
+  animation-delay:0.8s;
 }
 .resume-btn{
   margin-top:30px;
   display:inline-block;
-  padding:12px 30px;
-  border-radius:30px;
+  padding:14px 30px;
   background:linear-gradient(90deg,var(--accent),var(--accent2));
   color:white;
+  border-radius:30px;
   text-decoration:none;
-  font-weight:600;
-  transition:.3s;
+  font-weight:bold;
+  transition:0.3s;
 }
 .resume-btn:hover{
-  transform:translateY(-3px);
+  transform:translateY(-4px);
+  box-shadow:0 10px 30px rgba(56,189,248,0.4);
 }
 
-/* ---------- SECTIONS ---------- */
+/* SECTIONS */
 section{
-  max-width:1100px;
-  margin:auto;
-  padding:70px 24px;
+  padding:80px 10%;
 }
 section h2{
-  font-size:1.9rem;
-  margin-bottom:24px;
-  color:var(--accent);
+  margin-bottom:25px;
+  font-size:2rem;
+  position:relative;
+}
+section h2::after{
+  content:"";
+  width:60px;
+  height:3px;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  position:absolute;
+  left:0;
+  bottom:-8px;
 }
 
-/* ---------- SKILLS (ANIMATED) ---------- */
+/* SKILLS */
 .skill{
   background:var(--card);
-  border:1px solid var(--border);
+  padding:18px 22px;
+  margin-bottom:18px;
   border-radius:14px;
-  padding:16px 20px;
-  margin-bottom:14px;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  opacity:0;
-  transform:translateY(20px);
-  animation:reveal .8s ease forwards;
+  transition:0.3s;
 }
-.skill:nth-child(1){animation-delay:.1s}
-.skill:nth-child(2){animation-delay:.2s}
-.skill:nth-child(3){animation-delay:.3s}
-.skill:nth-child(4){animation-delay:.4s}
-.skill:nth-child(5){animation-delay:.5s}
-.skill:nth-child(6){animation-delay:.6s}
-
+.skill:hover{
+  transform:translateY(-5px);
+  box-shadow:0 15px 35px rgba(0,0,0,0.4);
+}
 .stars{
-  color:#f2b705;
+  color:#facc15;
+  font-size:1.2rem;
 }
 
-/* ---------- CERTIFICATIONS (HOVER + FADE) ---------- */
+/* CARDS */
 .card{
   background:var(--card);
-  border:1px solid var(--border);
-  border-radius:18px;
   padding:22px;
-  margin-bottom:18px;
-  opacity:0;
-  animation:fadeInUp .9s ease forwards;
+  margin:20px 0;
+  border-radius:16px;
+  transition:0.3s;
 }
 .card:hover{
   transform:translateY(-6px);
-  transition:.3s;
-}
-.card h3{
-  margin-bottom:8px;
-  color:#9c5a3c;
+  box-shadow:0 15px 40px rgba(0,0,0,0.4);
 }
 
-/* ---------- GALLERY (ANIMATED) ---------- */
+/* GALLERY */
 .gallery{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
@@ -171,26 +174,20 @@ section h2{
 .gallery img{
   width:100%;
   border-radius:16px;
-  border:1px solid var(--border);
-  opacity:0;
-  transform:scale(.95);
-  animation:galleryFade .9s ease forwards;
+  transition:0.4s;
 }
 .gallery img:hover{
-  transform:scale(1.05);
-  transition:.4s;
+  transform:scale(1.08) rotate(1deg);
 }
 
-/* ---------- FOOTER ---------- */
+/* FOOTER */
 footer{
-  border-top:1px solid var(--border);
-  padding:25px;
   text-align:center;
-  color:var(--muted);
-  background:var(--surface);
+  padding:25px;
+  background:var(--card);
 }
 
-/* ---------- ANIMATIONS ---------- */
+/* ANIMATIONS */
 @keyframes slideUp{
   from{opacity:0; transform:translateY(40px);}
   to{opacity:1; transform:translateY(0);}
@@ -198,25 +195,15 @@ footer{
 @keyframes fadeIn{
   to{opacity:1;}
 }
-@keyframes reveal{
-  to{opacity:1; transform:translateY(0);}
-}
-@keyframes fadeInUp{
-  from{opacity:0; transform:translateY(25px);}
-  to{opacity:1; transform:translateY(0);}
-}
-@keyframes galleryFade{
-  to{opacity:1; transform:scale(1);}
-}
 </style>
 </head>
 
 <body>
 
 <header>
-  <div class="header-inner">
-    <div class="logo">Thanmayee</div>
-    <nav>
+  <h2>Thanmayee</h2>
+  <div>
+    <nav style="display:inline;">
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#certifications">Certifications</a>
@@ -224,13 +211,14 @@ footer{
       <a href="#gallery">Gallery</a>
       <a href="#contact">Contact</a>
     </nav>
+    <span class="toggle" onclick="toggleMode()">🌙</span>
   </div>
 </header>
 
 <div class="hero">
   <div>
     <h1>Hi, I’m Thanmayee Perumalla</h1>
-    <p>Data Science & Computer Science Undergraduate</p>
+    <p>Data Science & Computer Science Undergraduate | UI & Analytics Enthusiast</p>
     <a href="Thanmayee_Resume.pdf" download class="resume-btn">📄 Download Resume</a>
   </div>
 </div>
@@ -238,9 +226,8 @@ footer{
 <section id="about">
 <h2>About Me</h2>
 <p>
-Data-driven Computer Science undergraduate passionate about solving real-world business
-problems through analytics and innovation. Skilled in data science, machine learning, and fullstack development with proven leadership in hackathons and cross-functional projects. Adept at
-deriving actionable consumer insights and delivering scalable solutions.
+Data-driven Computer Science undergraduate passionate about analytics, machine learning,
+and building clean, user-friendly applications.
 </p>
 </section>
 
@@ -256,14 +243,24 @@ deriving actionable consumer insights and delivering scalable solutions.
 
 <section id="certifications">
 <h2>Certifications & Achievements</h2>
+
 <div class="card">
-<h3>Cambridge Linguaskills</h3>
-<p>B1 Level – Professional English Proficiency</p>
+<h3>🎓 Cambridge Linguaskills</h3>
+<p>B1 Level – Professional English Communication Proficiency</p>
 </div>
+
 <div class="card">
-<h3>Hackathon – IIITDM Kurnool</h3>
-<p>Solastha’25 – Secured 9th place in Byte Battle</p>
+<h3>🏆 Hackathon – IIITDM Kurnool</h3>
+<p>Solastha’25 – Secured 9th place in Byte Battle for a real-time data application.</p>
 </div>
+
+</section>
+
+<section id="projects">
+<h2>Projects</h2>
+<div class="card">🍽 Food Recipe Website – Responsive UI with multiple cuisines</div>
+<div class="card">💄 Cosmetic Insights – Consumer trend analysis using Tableau</div>
+<div class="card">🚀 ISRO Autonomous Rover – Raspberry Pi & Pixhawk integration</div>
 </section>
 
 <section id="gallery">
@@ -279,13 +276,18 @@ deriving actionable consumer insights and delivering scalable solutions.
 <section id="contact">
 <h2>Contact</h2>
 <p>📞 9063374408</p>
-<p>📧 perumallathanmayee@gmail.com</p>
-<p>🔗 LinkedIn | GitHub</p>
+<p>📧 <a href="mailto:perumallathanmayee@gmail.com">perumallathanmayee@gmail.com</a></p>
+<p>🔗 <a href="https://www.linkedin.com/in/thanmayee-perumalla-37b96328b/" target="_blank">LinkedIn</a></p>
+<p>💻 <a href="https://github.com/Thamayee" target="_blank">GitHub</a></p>
 </section>
 
-<footer>
-© 2026 Thanmayee Perumalla
-</footer>
+<footer>© 2026 Thanmayee Perumalla</footer>
+
+<script>
+function toggleMode(){
+  document.body.classList.toggle("light");
+}
+</script>
 
 </body>
 </html>
