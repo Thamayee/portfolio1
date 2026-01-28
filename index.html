@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thanmayee Perumalla | Portfolio</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+body{
+  background:#0f172a;
+  color:white;
+  line-height:1.6;
+}
+
+/* NAVBAR */
+header{
+  position:sticky;
+  top:0;
+  background:#020617;
+  padding:15px 30px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  z-index:1000;
+}
+header h2{color:#38bdf8;}
+nav a{
+  color:white;
+  margin-left:20px;
+  text-decoration:none;
+}
+nav a:hover{color:#38bdf8;}
+
+/* HERO */
+.hero{
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:20px;
+}
+.hero h1{
+  font-size:3rem;
+  animation:fadeIn 2s;
+}
+.hero p{
+  margin-top:15px;
+  font-size:1.2rem;
+  color:#cbd5f5;
+}
+
+/* SECTIONS */
+section{
+  padding:70px 10%;
+}
+section h2{
+  color:#38bdf8;
+  margin-bottom:20px;
+}
+
+/* SKILLS */
+.skills span{
+  display:inline-block;
+  background:#1e293b;
+  padding:10px 15px;
+  margin:8px;
+  border-radius:20px;
+}
+
+/* PROJECTS */
+.card{
+  background:#020617;
+  padding:20px;
+  margin:15px 0;
+  border-left:4px solid #38bdf8;
+}
+
+/* GALLERY */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:15px;
+}
+.gallery img{
+  width:100%;
+  border-radius:10px;
+  transition:0.3s;
+}
+.gallery img:hover{
+  transform:scale(1.05);
+}
+
+/* CONTACT */
+.contact a{
+  color:#38bdf8;
+  text-decoration:none;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:20px;
+  background:#020617;
+}
+
+/* ANIMATION */
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(20px);}
+  to{opacity:1; transform:translateY(0);}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h2>Thanmayee</h2>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <div>
+    <h1>Hi, I’m Thanmayee Perumalla</h1>
+    <p>Data Science & Computer Science Undergraduate | UI & Analytics Enthusiast</p>
+  </div>
+</div>
+
+<section id="about">
+<h2>About Me</h2>
+<p>
+I am a data-driven Computer Science undergraduate from Ravindra College of Engineering for Women,
+passionate about solving real-world problems using analytics, machine learning, and intuitive UI design.
+</p>
+<ul>
+<li>📍 Kurnool, India</li>
+<li>🎓 B.Tech CSE (CGPA: 7.7)</li>
+<li>💡 Interests: Data Science, UI Design, Analytics</li>
+</ul>
+</section>
+
+<section id="skills">
+<h2>Skills</h2>
+<div class="skills">
+<span>Python</span>
+<span>SQL</span>
+<span>Java</span>
+<span>HTML</span>
+<span>CSS</span>
+<span>JavaScript</span>
+<span>Power BI</span>
+<span>Tableau</span>
+<span>Machine Learning</span>
+<span>Git & GitHub</span>
+</div>
+</section>
+
+<section id="projects">
+<h2>Projects & Hackathons</h2>
+
+<div class="card">
+<h3>Food Recipe Website</h3>
+<p>Responsive food recipe platform with login UI, chef profiles, and multiple cuisines.</p>
+</div>
+
+<div class="card">
+<h3>Cosmetic Insights – Consumer Trend Analysis</h3>
+<p>Tableau dashboards analyzing global cosmetic market trends.</p>
+</div>
+
+<div class="card">
+<h3>ISRO Autonomous Rover Competition</h3>
+<p>Team lead; built obstacle-detecting rover using Raspberry Pi & Pixhawk.</p>
+</div>
+
+</section>
+
+<section id="gallery">
+<h2>Gallery</h2>
+<div class="gallery">
+<img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085">
+<img src="https://images.unsplash.com/photo-1518770660439-4636190af475">
+<img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c">
+<img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d">
+</div>
+</section>
+
+<section id="contact">
+<h2>Contact</h2>
+<p>📞 9063374408</p>
+<p>📧 <a href="mailto:perumallathanmayee@gmail.com">perumallathanmayee@gmail.com</a></p>
+<p>🔗 <a href="https://www.linkedin.com/in/thanmayee-perumalla-37b96328b/" target="_blank">LinkedIn</a></p>
+<p>💻 <a href="https://github.com/Thamayee" target="_blank">GitHub</a></p>
+</section>
+
+<footer>
+<p>© 2026 Thanmayee Perumalla</p>
+</footer>
+
+</body>
+</html>
