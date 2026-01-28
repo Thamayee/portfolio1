@@ -7,14 +7,14 @@
 
 <style>
 :root{
-  --bg:#f4f7fb;
+  --bg:#f7f6f3;              /* pastel beige */
   --surface:#ffffff;
   --card:#ffffff;
-  --border:#e2e8f0;
-  --text:#1e293b;
-  --muted:#64748b;
-  --accent:#6366f1;
-  --accent-soft:#e0e7ff;
+  --border:#e5e2dc;
+  --text:#2f2f2f;
+  --muted:#6b6b6b;
+  --accent:#6b8e7f;          /* sage green */
+  --accent2:#b48ead;         /* soft mauve */
 }
 
 *{
@@ -60,8 +60,8 @@ nav a{
   padding-bottom:4px;
 }
 nav a:hover{
-  color:var(--accent);
-  border-bottom:2px solid var(--accent);
+  color:var(--accent2);
+  border-bottom:2px solid var(--accent2);
 }
 
 /* ---------- HERO ---------- */
@@ -75,6 +75,7 @@ nav a:hover{
 }
 .hero h1{
   font-size:3rem;
+  color:#3b3b3b;
 }
 .hero p{
   margin-top:14px;
@@ -84,16 +85,17 @@ nav a:hover{
 .resume-btn{
   margin-top:30px;
   display:inline-block;
-  padding:12px 28px;
+  padding:12px 30px;
   border-radius:30px;
-  background:var(--accent);
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
   color:white;
   text-decoration:none;
   font-weight:600;
   transition:.3s;
 }
 .resume-btn:hover{
-  background:#4f46e5;
+  transform:translateY(-3px);
+  opacity:0.9;
 }
 
 /* ---------- SECTIONS ---------- */
@@ -120,7 +122,7 @@ section h2{
   align-items:center;
 }
 .stars{
-  color:#fbbf24;
+  color:#f2b705; /* soft gold */
 }
 
 /* ---------- CARDS ---------- */
@@ -133,7 +135,7 @@ section h2{
 }
 .card h3{
   margin-bottom:8px;
-  color:#4338ca;
+  color:var(--accent2);
 }
 
 /* ---------- FOOTER ---------- */
@@ -196,7 +198,7 @@ and building clean, user-friendly digital solutions.
 </div>
 <div class="card">
 <h3>Hackathon – IIITDM Kurnool</h3>
-<p>Solastha’25 – 9th place in Byte Battle</p>
+<p>Solastha’25 – Secured 9th place in Byte Battle</p>
 </div>
 </section>
 
@@ -204,7 +206,7 @@ and building clean, user-friendly digital solutions.
 <h2>Projects</h2>
 <div class="card"><h3>Food Recipe Website</h3><p>Responsive UI with multiple cuisines</p></div>
 <div class="card"><h3>Cosmetic Insights</h3><p>Consumer trend analysis using Tableau</p></div>
-<div class="card"><h3>ISRO Autonomous Rover</h3><p>Obstacle-detecting rover using Raspberry Pi</p></div>
+<div class="card"><h3>ISRO Autonomous Rover</h3><p>Autonomous rover using Raspberry Pi</p></div>
 </section>
 
 <section id="contact">
